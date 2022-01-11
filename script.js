@@ -12,28 +12,33 @@ function checkInput(){
     const emailValue =email.value.trim();
     const passwordValue = password.value.trim();
     const password2Value = confirmpassword.value.trim();
-
-    if(usernameValue ===''){
-        setError(username, "Username should not be blank");
-        console.log("error");
-    }
-    else
-        setSuccess(username);
     if(emailValue ===''){
-        setError(emailValue ,"Email should not be blank");
+        setError(email,"Email should not be blank");
+        alert("Error")
+
         console.log("error");
     }
     else
         setSuccess(email);
+    
+        if(usernameValue ===''){
+            alert("Error");
+        setError(username, "Username should not be blank");
+       
+        console.log("error");
+    }
+    else
+        setSuccess(username);
+   
     if(passwordValue ===''){
-        setError(passwordValue ,"Password should not be blank");
+        setError(password ,"Password should not be blank");
         console.log("error");
     }
     else{
         setSuccess(password);
     }
     if(password2Value ===''){
-        setError(password2Value ,"Password should not be blank");
+        setError(confirmpassword ,"Password should not be blank");
         console.log("error");
     }
     else if(passwordValue !==  password2Value)
@@ -45,13 +50,16 @@ function checkInput(){
 }
 
 function setError(input,message){
+    console.log("Init");
     const formControl= input.parentElement;
-    const small = formControl.querySelector('small');
+    console.log(formControl);
+    const small = document.querySelector('small');
+    console.log(small);
     formControl.className = 'form-control error';
     small.innerText =message;
 }
 function setSuccess(){
     const formControl =input.parentElement;
-    formControl.className='form-control sucess';
+    formControl.className='form-control success';
 
 }
